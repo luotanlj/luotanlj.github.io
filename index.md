@@ -1,7 +1,7 @@
 ## Welcome to GitHub Pages
 
 test00
-<a href="www.baidu.com" target="_blank">实验</a>
+<a href="./p1.png" target="_blank">实验</a>
 
 You can use the [editor on GitHub](https://github.com/luotanlj/luotanlj.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
