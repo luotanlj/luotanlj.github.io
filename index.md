@@ -1,8 +1,9 @@
 ## Welcome to GitHub Pages
 
 test00
-<a href="./p1.png" target="_blank">lab00</a>
-<a href="./p1.png" target="_blank">实验</a>
+<a href="./lab00/p201912203502031.png">lab00</a>
+</br>
+<a href="./p1.png" target="_blank">tt</a>
 
 
 
