@@ -3,6 +3,8 @@
 test00
 <a href="./lab00/p201912203502031.png">lab00</a>
 #
+<p><a href="./lab01/lab01.html">lab01</a></p>
+#
 <a href="./p1.png" target="_blank">tt</a>
 
 
