@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <!-- 一组相关的JS库 -->
+    <script type="text/javascript" src="../common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../common/initShaders.js"></script>
+    <script type="text/javascript" src="../common/gl-matrix-min.js"></script>
+</head>
+<body>
+<h3>同时绘制一个三角形和一个四边形，将两者设置为相同的颜色</h3>
+<canvas id="triangle" style="border:none;" width="500px" height="500px"></canvas>
+<!--<canvas id="squ" style="border:none;" width="500px" height="500px"></canvas>-->
+
+
+
+<script id="vertex-shader-2d" type="notjs">
+    //attribute声明vec4类型变量a_position
+    attribute vec4 a_position;
+    void main() {
+        //顶点坐标apos赋值给内置变量gl_Position
+        //逐顶点处理数据
+        gl_Position = a_position;
+    }
+  </script>
+<!-- fragment shader -->
+<script id="fragment-shader-2d" type="notjs">
+    precision mediump float;
+
+    void main() {
+      // 逐片元处理数据，所有片元(像素)设置为红色
+        gl_FragColor = vec4(1, 0, 1, 1);
+    }
+</script>
+  <!--js-->
+<script type="text/javascript" src="../js/js-c.js"></script>
+</body>
+</html>

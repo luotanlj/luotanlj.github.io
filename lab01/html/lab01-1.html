@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <!-- 一组相关的JS库 -->
+    <script type="text/javascript" src="../common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../common/initShaders.js"></script>
+    <script type="text/javascript" src="../common/gl-matrix-min.js"></script>
+</head>
+<body>
+<h3>修改三角形的显示颜色</h3>
+<canvas id="clo" style="border:none;" width="500px" height="500px"></canvas>
+
+
+
+<script  id="vertex-shader-2d" type="notjs">
+
+  // an attribute will receive data from a buffer
+  attribute vec4 a_position;
+
+  // all shaders have a main function
+  void main() {
+
+    // gl_Position is a special variable a vertex shader
+    // is responsible for setting
+    gl_Position = a_position;
+  }
+
+</script>
+<script  id="fragment-shader-2d" type="notjs">
+
+  // fragment shaders don't have a default precision so we need
+  // to pick one. mediump is a good default
+  precision mediump float;
+
+  void main() {
+    // gl_FragColor is a special variable a fragment shader
+    // is responsible for setting
+    gl_FragColor = vec4(1, 0, 1, 1); // return redish-purple
+  }
+</script>
+  <!--js-->
+<script type="text/javascript" src="../js/js-a.js"></script>
+</body>
+</html>
