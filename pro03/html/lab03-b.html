@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Chap3 Demo -- Rotating Square Button</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+	    attribute vec3 vPosition;
+        attribute vec3 vColor;
+        varying vec4 color;
+        uniform float size;
+
+        void main(){
+            gl_Position = vec4( vPosition, 1.0 );
+            gl_Position.x *= size;
+            gl_Position.y *= size;
+            color = vec4( vColor, 0.8 );
+        }
+	</script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+	    precision mediump float;
+        varying vec4 color;
+        void main(){
+            gl_FragColor = color;
+        }
+	</script>
+</head>
+<body onload="init()">
+<h1>an 1:不变 2:小 3:大 </h1><br>
+
+<!--<canvas id="rot-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas>-->
+<canvas id="triangle-canvas" style="border:none;" width="500" height="500"></canvas>
+
+
+<script type="text/javascript" src="../../common/webgl-utils.js"></script>
+<script type="text/javascript" src="../../common/initShaders.js"></script>
+<script type="text/javascript" src="../../common/gl-matrix-min.js"></script>
+
+<script type="text/javascript" src="../js/lab03-b.js"></script>
+
+</body>
+</html>
