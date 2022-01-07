@@ -3,11 +3,7 @@ var snow,rain;
 snow = rain = -1;
 dicx = dicy = dicz = 0;
 let speed = 1;
-//创建场景
 var scene = new THREE.Scene();
-/**
- * 相机设置
- */
 var width = window.innerWidth-16; //窗口宽度
 var height = window.innerHeight-20; //窗口高度
 var k = width / height; //窗口宽高比
@@ -41,7 +37,7 @@ function fish(path,num){
         var sprite = new THREE.Sprite(spriteMaterial);
         scene.add(sprite);
         // 控制精灵大小,
-        sprite.scale.set(8, 10, 1); //// 只需要设置x、y两个分量就可以
+        sprite.scale.set(8, 10, 1); 
         var k1 = Math.random() - 0.5;
         var k2 = Math.random() - 0.5;
         // 设置精灵模型位置，在空间中随机分布
@@ -52,7 +48,7 @@ function fish(path,num){
     return group;
 }
 
-var group00 = fish("./img/rain.png",1000);
+// var group00 = fish("./img/rain.png",1000);
 var group01 = fish("./img/f1.png",100);
 var group02 = fish("./img/f2.png",100);
 var group03 = fish("./img/f3.png",100);
@@ -132,14 +128,12 @@ function press(){
         } else if(e.charCode===32){
             dicx = dicy = dicz = 0;
         }
-        console.log("press:"+dicx);
     }
 
 }
 press();
 
 function sPress(num,type){
-    // console.log("num="+num+" type="+type);
     if(type===0){
         if(num===0)snow=-1;
         else snow = 1;
@@ -149,10 +143,6 @@ function sPress(num,type){
     }
 }
 
-
-
-
-// 渲染函数
 function render() {
 
     group05.children.forEach(sprite=>{
@@ -170,20 +160,15 @@ function render() {
         }
         // console.log(dicx+"=====")
     });
-    // 每次渲染遍历雨滴群组，刷新频率30~60FPS，两帧时间间隔16.67ms~33.33ms
-    // 每次渲染都会更新雨滴的位置，进而产生动画效果
     group00.children.forEach(sprite => {
-        // 雨滴的y坐标每次减1
         sprite.position.y += 3*rain;
         if (sprite.position.y < 0 || sprite.position.y > 400) {
-            // 如果雨滴落到地面，重置y，从新下落
             if(rain===-1)sprite.position.y = 400;
             else sprite.position.y = 0;
         }
     });
 
     group01.children.forEach(sprite => {
-        // 雨滴的y坐标每次减1
         sprite.position.x += 0.5;
         sprite.position.y -= 1;
         if (sprite.position.x > 400 || sprite.position.y < 0) {
@@ -193,39 +178,30 @@ function render() {
     });
 
     group02.children.forEach(sprite => {
-        // 雨滴的y坐标每次减1
         sprite.position.x += -1;
         // console.log(speed);
         if (sprite.position.x < -400 || sprite.position.x > 400) {
-            // 如果雨滴落到地面，重置y，从新下落
             sprite.position.x = 400;
             // speed=-speed;/**/
         }
     });
 
     group03.children.forEach(sprite => {
-        // 雨滴的y坐标每次减1
         sprite.position.z += 1;
         if (sprite.position.z > 400) {
-            // 如果雨滴落到地面，重置y，从新下落
             sprite.position.z = -400;
         }
     });
 
     group04.children.forEach(sprite => {
-        // 雨滴的y坐标每次减1
         sprite.position.y += snow*0.2;
         if (sprite.position.y < 0 || sprite.position.y > 400) {
-            // 如果雨滴落到地面，重置y，从新下落
             if(snow===-1)sprite.position.y = 400;
             else sprite.position.y = 0;
         }
     });
-
-
-
     renderer.render(scene, camera); //执行渲染操作
-    requestAnimationFrame(render);//请求再次执行渲染函数render，渲染下一帧
+    requestAnimationFrame(render);//请求再次执行渲染函数render
 }
 render();
 var controls = new THREE.OrbitControls(camera, renderer.domElement); //创建鼠标控制对象
