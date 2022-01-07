@@ -1,0 +1,23 @@
+button {
+    position: fixed;
+    left: 600px;
+}
+
+#btn1 {
+    top: 50px;
+}
+
+#btn2 {
+    top: 50px;
+    left: 800px;
+}
+
+#btn3 {
+    top: 150px;
+}
+
+#btn4 {
+    top: 150px;
+    left: 800px;
+}
+
